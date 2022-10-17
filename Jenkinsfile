@@ -52,42 +52,16 @@ pipeline{
         }
     
 
-
-        stage("Publish to Nexus") {
+        stage('Publish to Nexus') {
             steps {
                 script {
-                    pom = readMavenPom file: "pom.xml";
-                    filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
-                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
-                    artifactPath = filesByGlob[0].path;
-                    artifactExists = fileExists artifactPath;
-                    if(artifactExists) {
-                        echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-                        nexusArtifactUploader(
-                            nexusVersion: 'nexus3',
-                            protocol: 'http',
-                            nexusUrl: '172.10.0.140:8081',
-                            groupId: 'pom.com.esprit.examen',
-                            version: 'pom.1.0 -SNAPSHOT',
-                            repository: 'cicdback',
-                            credentialsId: 'aziznexus',
-                            artifacts: [
-                                [artifactId: 'pom.tpAchatProject',
-                                classifier: '',
-                                file: artifactPath,
-                                type: pom.packaging],
-                                [artifactId: 'pom.tpAchatProject',
-                                classifier: '',
-                                file: "pom.xml",
-                                type: "pom"]
-                            ]
-                        );
-                    } else {
-                        error "*** File: ${artifactPath}, could not be found";
-                    }
+                    
+configFileProvider([configFile(fileId: 'fccdf24e-aa6d-44a1-9aa7-2db0076915e4', variable: 'mysettingsnexus')]) {
+  sh 'mvn  -B -DskipTests deploy -s $mysettingsnexus'}
+                
                 }
             }
-        }  
+        }
 
      
 }
