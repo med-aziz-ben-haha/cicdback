@@ -67,12 +67,7 @@ configFileProvider([configFile(fileId: 'fccdf24e-aa6d-44a1-9aa7-2db0076915e4', v
 }
 	
 	    
-        
-        post {
-        always {
-            cleanWs()
-        }
-    }
+
 
     
 	
