@@ -40,12 +40,6 @@ pipeline{
             }
         }
         
-
-                stage('jacoco') {
-            steps{
-               		 sh "./gradlew dockerComposeUp " 
-            }
-        }
 	    
        
         stage('Code Quality Check via SonarQube') {
