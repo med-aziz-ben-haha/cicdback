@@ -37,8 +37,8 @@ pipeline{
             steps{
                 
              		sh "    mvn sonar:sonar
-  				-Dsonar.projectKey=cicdback \
-  				-Dsonar.host.url=http://172.10.0.140:9000 \
+  				-Dsonar.projectKey=cicdback
+  				-Dsonar.host.url=http://172.10.0.140:9000
  				-Dsonar.login=3d562f0bfa2bb060e5e1c63252d0e9ed6680797c"
  
             }
