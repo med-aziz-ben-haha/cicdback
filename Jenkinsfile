@@ -56,7 +56,7 @@ pipeline{
             steps {
                 
 
-  sh 'mvn clean package deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/cicdback/ -Dfile=target/tpAchatProject-1.0.jar'
+  sh 'mvn clean package deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.1 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/cicdback/ -Dfile=target/tpAchatProject-1.1.jar'
                 
                
             }
