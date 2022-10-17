@@ -75,6 +75,7 @@ pipeline{
 		}
 		
         always {
+		emailext attachLog: true, body: '', subject: 'Build finished', to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
         }
     }
