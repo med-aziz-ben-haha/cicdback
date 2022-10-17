@@ -54,12 +54,11 @@ pipeline{
 
         stage('Publish to Nexus') {
             steps {
-                script {
-                    
-configFileProvider([configFile(fileId: 'fccdf24e-aa6d-44a1-9aa7-2db0076915e4', variable: 'settingnexus')]){
-  sh 'mvn  -B -DskipTests deploy -s $settingnexus'}
                 
-                }
+
+  sh 'mvn clean package deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://172.10.0.140:8081/repository/cicdback/ -Dfile=target/tpAchatProject-1.0.jar'
+                
+               
             }
         }
 
