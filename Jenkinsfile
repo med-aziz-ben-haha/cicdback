@@ -68,7 +68,7 @@ pipeline{
                             protocol: 'http',
                             nexusUrl: '172.10.0.140:8081',
                             groupId: 'pom.com.esprit.examen',
-                            version: 'pom.1.0',
+                            version: 'pom.1.0 -SNAPSHOT',
                             repository: 'cicdback',
                             credentialsId: 'aziznexus',
                             artifacts: [
