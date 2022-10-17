@@ -56,8 +56,8 @@ pipeline{
             steps {
                 script {
                     
-configFileProvider([configFile(fileId: 'fccdf24e-aa6d-44a1-9aa7-2db0076915e4', variable: 'mysettingsnexus')]) {
-  sh 'mvn  -B -DskipTests deploy -s $mysettingsnexus'}
+configFileProvider([configFile(fileId: '2ab665d9-dc12-4e43-8366-b7b17152ba86', variable: 'mynexus')]){
+  sh 'mvn  -B -DskipTests deploy -s $mynexus'}
                 
                 }
             }
