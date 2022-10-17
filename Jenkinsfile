@@ -67,17 +67,11 @@ pipeline{
 	    
         post {
 		success{
-		emailext attachLog: true, body: '''Dear Med Aziz,
-we\'re happy to inform you that your pipeline build was successful.
-Great work !
--Jenkins Team-''', subject: 'Build result - Success', to: 'mohamedaziz.benhaha@esprit.tn'
+		emailext attachLog: true, body: 'Dear Med Aziz, we are happy to inform you that your pipeline build was successful. Great work ! -Jenkins Team-', subject: 'Build result - Success', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 		
 		failure{
-		emailext attachLog: true, body: '''Dear Med Aziz,
-we\'re sorry to inform you that your pipeline build failed.
-Keep working !
--Jenkins Team-''', subject: 'Build result - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
+		emailext attachLog: true, body: 'Dear Med Aziz, we are sorry to inform you that your pipeline build failed. Keep working ! -Jenkins Team-', subject: 'Build result - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 		
         always {
