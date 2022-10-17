@@ -70,15 +70,18 @@ pipeline{
 		mail bcc: '', body: '''Dear Med Aziz, 
 we are happy to inform you that your pipeline build was successful. 
 Great work ! 
--Jenkins Team-''', cc: '', from: 'no_reply@jenkins.com', replyTo: '', subject: 'Build Finished - Success', to: 'mohamedaziz.benhaha@esprit.tn'
+-Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Success', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 		
 		failure{
-		emailext attachLog: true, body: 'Dear Med Aziz, we are sorry to inform you that your pipeline build failed. Keep working ! -Jenkins Team-', subject: 'Build result - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
+mail bcc: '', body: '''Dear Med Aziz, 
+we are sorry to inform you that your pipeline build failed. 
+Keep working ! 
+-Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Success', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 		
         always {
-		emailext attachLog: true, body: '', subject: 'Build finished', to: 'mohamedaziz.benhaha@esprit.tn'
+		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
         }
     }
