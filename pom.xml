@@ -10,11 +10,7 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>tpAchatProject</artifactId>
-<<<<<<< HEAD
-	<version>1.0</version>
-=======
 	<version>1.1</version>
->>>>>>> a3e1fc131c36bedad4534f97f95556ee97a4ec24
 	<name>tpAchatProject</name>
 	<description>tpAchatProject</description>
 	<properties>
@@ -78,11 +74,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-resources-plugin</artifactId>
-    <version>3.1.0</version>
-</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
