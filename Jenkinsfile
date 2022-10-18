@@ -77,7 +77,7 @@ Great work !
 mail bcc: '', body: '''Dear Med Aziz, 
 we are sorry to inform you that your pipeline build failed. 
 Keep working ! 
--Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Success', to: 'mohamedaziz.benhaha@esprit.tn'
+-Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 		
         always {
