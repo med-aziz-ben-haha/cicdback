@@ -3,7 +3,9 @@ package com.esprit.examen.controllers;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 class CategorieProduitControllerTest {
 
 	@Test
@@ -21,14 +23,5 @@ class CategorieProduitControllerTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	void testRemoveCategorieProduit() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testModifyCategorieProduit() {
-		fail("Not yet implemented");
-	}
 
 }
