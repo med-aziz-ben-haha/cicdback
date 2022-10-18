@@ -20,7 +20,7 @@ pipeline{
     
         stage('Cleaning the project') {
             steps{
-                	sh "mvn -B -DskipTests clean  " 
+                	sh "mvn -B clean  " 
             }
         }
         
@@ -28,7 +28,7 @@ pipeline{
     
         stage('Artifact Construction') {
             steps{
-                	sh "mvn -B -DskipTests package " 
+                	sh "mvn -B package " 
             }
         }
         
