@@ -10,7 +10,7 @@ pipeline{
     
         stage('Getting project from Git') {
             steps{
-      			checkout([$class: 'GitSCM', branches: [[name: '*/aziz']], 
+      			checkout([$class: 'GitSCM', branches: [[name: '*/tskander']], 
 			extensions: [], 
 			userRemoteConfigs: [[url: 'https://github.com/med-aziz-ben-haha/cicdback.git']]])
             }
