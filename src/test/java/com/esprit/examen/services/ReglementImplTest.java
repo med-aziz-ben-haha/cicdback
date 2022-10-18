@@ -30,7 +30,7 @@ public class ReglementImplTest {
 	}
 
 	@Test
-	public void testAddStockOptimized() {
+	public void testAddReglementOptimized() {
 
 		Reglement s = new Reglement(50,45,false);
 		Reglement savedReglement= ReglementService.addReglement(s);

@@ -31,7 +31,7 @@ public class SecteurActiviteImplTest {
 	}
 
 	@Test
-	public void testAddStockOptimized() {
+	public void testAddSecteurActiviteOptimized() {
 
 		SecteurActivite s = new SecteurActivite("SecteurActivite test","SecteurActivite");
 		SecteurActivite savedSecteurActivite= SecteurActiviteService.addSecteurActivite(s);
@@ -43,7 +43,7 @@ public class SecteurActiviteImplTest {
 	}
 
 	@Test
-	public void testDeleteStock() {
+	public void testDeleteSecteurActivite() {
 		SecteurActivite s = new SecteurActivite("SecteurActivite test","SecteurActivite");
 		SecteurActivite savedSecteurActivite= SecteurActiviteService.addSecteurActivite(s);
 		SecteurActiviteService.deleteSecteurActivite(savedSecteurActivite.getIdSecteurActivite());
