@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SecteurActiviteImplTest {
@@ -17,12 +19,12 @@ public class SecteurActiviteImplTest {
 
 	@Test
 	public void testAddSecteurActivite() {
-		//	List<Stock> stocks = stockService.retrieveAllStocks();
-		//	int expected=stocks.size();
+			List<SecteurActivite> SecteurActivites = SecteurActiviteService.retrieveAllSecteurActivite();
+			int expected=SecteurActivites.size();
 		SecteurActivite s = new SecteurActivite("SecteurActivite test","SecteurActivite");
 		SecteurActivite savedSecteurActivite= SecteurActiviteService.addSecteurActivite(s);
 
-		//	assertEquals(expected+1, stockService.retrieveAllStocks().size());
+			assertEquals(expected+1, SecteurActiviteService.retrieveAllSecteurActivite().size());
 		assertNotNull(savedSecteurActivite.getCodeSecteurActivite());
 		SecteurActiviteService.deleteSecteurActivite(savedSecteurActivite.getIdSecteurActivite());
 

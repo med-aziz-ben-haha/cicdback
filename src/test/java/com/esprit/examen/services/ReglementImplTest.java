@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -17,12 +19,12 @@ public class ReglementImplTest {
 
 	@Test
 	public void testAddReglement() {
-		//	List<Stock> stocks = stockService.retrieveAllStocks();
-		//	int expected=stocks.size();
+		List<Reglement> Reglements = ReglementService.retrieveAllReglements();
+		int expected=Reglements.size();
 		Reglement s = new Reglement(50,45,false);
 		Reglement savedReglement= ReglementService.addReglement(s);
 
-		//	assertEquals(expected+1, stockService.retrieveAllStocks().size());
+		assertEquals(expected+1, ReglementService.retrieveAllReglements().size());
 		assertNotNull(savedReglement.getIdReglement());
 		ReglementService.deleteReglement(savedReglement.getIdReglement());
 

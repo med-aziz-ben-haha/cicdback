@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -18,12 +20,12 @@ public class ProduitImplTest {
 
 	@Test
 	public void testAddProduit() {
-		//	List<Stock> stocks = stockService.retrieveAllStocks();
-		//	int expected=stocks.size();
+		List<Produit> Produits = ProduitService.retrieveAllProduits();
+		int expected=Produits.size();
 		Produit s = new Produit("Produit code","Produit",23);
 		Produit savedProduit= ProduitService.addProduit(s);
 
-		//	assertEquals(expected+1, stockService.retrieveAllStocks().size());
+		assertEquals(expected+1, ProduitService.retrieveAllProduits().size());
 		assertNotNull(savedProduit.getIdProduit());
 		ProduitService.deleteProduit(savedProduit.getIdProduit());
 
