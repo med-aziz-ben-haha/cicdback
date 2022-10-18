@@ -1,7 +1,6 @@
 package com.esprit.examen.services;
 
 import com.esprit.examen.entities.Reglement;
-import com.esprit.examen.entities.SecteurActivite;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

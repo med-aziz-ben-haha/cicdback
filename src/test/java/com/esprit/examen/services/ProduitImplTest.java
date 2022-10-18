@@ -1,8 +1,6 @@
 package com.esprit.examen.services;
 
 import com.esprit.examen.entities.Produit;
-import com.esprit.examen.entities.Produit;
-import com.esprit.examen.entities.Stock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -37,7 +36,7 @@ public class ProduitImplTest {
 		Produit savedProduit= ProduitService.addProduit(s);
 		assertNotNull(savedProduit.getIdProduit());
 		assertSame("Produit code", savedProduit.getCodeProduit());
-		assertTrue(savedProduit.getPrix() != 0);
+		assertNotEquals(0,savedProduit.getPrix());
 		ProduitService.deleteProduit(savedProduit.getIdProduit());
 
 	}

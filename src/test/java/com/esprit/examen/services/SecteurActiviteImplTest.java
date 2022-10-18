@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.constraints.Null;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SecteurActiviteImplTest {
@@ -37,7 +35,7 @@ public class SecteurActiviteImplTest {
 		SecteurActivite savedSecteurActivite= SecteurActiviteService.addSecteurActivite(s);
 		assertNotNull(savedSecteurActivite.getIdSecteurActivite());
 		assertSame("SecteurActivite test", savedSecteurActivite.getCodeSecteurActivite());
-		assertTrue(savedSecteurActivite.getLibelleSecteurActivite() != null);
+		assertNotNull(savedSecteurActivite.getLibelleSecteurActivite());
 		SecteurActiviteService.deleteSecteurActivite(savedSecteurActivite.getIdSecteurActivite());
 
 	}
