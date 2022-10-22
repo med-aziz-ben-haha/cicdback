@@ -64,7 +64,7 @@ pipeline{
 stage('Build Docker Image') {
                       steps {
                           script {
-                            sh 'docker build -t azizbenhaha/cicdback .'
+                            sh 'docker build -t azizbenhaha/spring-app .'
                           }
                       }
                   }
@@ -75,7 +75,7 @@ stage('Build Docker Image') {
                                              withCredentials([string(credentialsId: 'azizdockerhub', variable: 'dockerhubpwd')]) {
                                                 sh 'docker login -u azizbenhaha -p ${dockerhubpwd}'
                                              }
-                                             sh 'docker push azizbenhaha/cicdback'
+                                             sh 'docker push azizbenhaha/spring-app'
                                             }
                                         }
                                     }
