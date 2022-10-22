@@ -4,6 +4,9 @@ pipeline{
         maven 'M2_HOME'
     }
 
+environment{
+DOCKERHUB_CRED=credentials('azizdockerhub')
+}
 
     stages {
     
@@ -71,11 +74,10 @@ stage('Build Docker Image') {
 
                   stage('Push Docker Image') {
                                         steps {
-                                            script {
-                                             withCredentials([string(credentialsId: 'azizdockerhub', variable: 'dockerhubpwd')]) {
-                                                sh 'docker login -u azizbenhaha -p ${dockerhubpwd}'
-                                             }
-                                             sh 'docker push azizbenhaha/spring-app'
+
+                                    sh 'echo DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --pass-stdin'
+
+                                   sh 'docker push azizbenhaha/spring-app'
                                             }
                                         }
                                     }
