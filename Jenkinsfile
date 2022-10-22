@@ -60,6 +60,16 @@ pipeline{
                
             }
         }
+		
+		        stage('mySQL database') {
+            steps {
+                
+
+  sh 'docker-compose up'
+                
+               
+            }
+        }
 
      
 }
