@@ -5,7 +5,7 @@ pipeline{
     }
 
 environment{
-DOCKERHUB_CREDENTIALS = credentials('azizbenhaha')
+DOCKERHUB_CREDENTIALS = credentials('azizbenhahadockerhub')
 }
 
     stages {
@@ -67,24 +67,23 @@ DOCKERHUB_CREDENTIALS = credentials('azizbenhaha')
 stage('Build Docker Image') {
                       steps {
                           script {
-                            sh 'docker build -t azizbenhaha/spring-app .'
-				   sh 'echo dockerbuildfinished'
+                            sh 'docker build -t azizbenhaha/spring-app:latest .'
                           }
                       }
                   }
 
-                  stage('Push Docker Image') {
+                  stage('login dockerhub') {
                                         steps {
-                                      sh 'echo DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-						sh 'echo dockerlogfinished'
-                                   sh 'docker push azizbenhaha/spring-app'
-						sh 'echo dockerpushfinished'
+                                      sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                                             }
-
-
-
-     
-}
+		  }
+	    
+	                      stage('Push Docker Image') {
+                                        steps {
+                                   sh 'docker push azizbenhaha/spring-app:latest'
+                                            }
+		  }
+	    
 }
 	    
         post {
