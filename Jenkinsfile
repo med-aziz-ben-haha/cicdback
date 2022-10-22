@@ -76,7 +76,7 @@ pipeline{
 	
 	    
         post {
-		success{
+		/*success{
 		mail bcc: '', body: '''Dear Med Aziz, 
 we are happy to inform you that your pipeline build was successful. 
 Great work ! 
@@ -89,7 +89,7 @@ we are sorry to inform you that your pipeline build failed.
 Keep working ! 
 -Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
-		
+		*/
         always {
 		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
