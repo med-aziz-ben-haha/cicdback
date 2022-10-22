@@ -68,6 +68,7 @@ stage('Build Docker Image') {
                       steps {
                           script {
                             sh 'docker build -t azizbenhaha/spring-app .'
+				   sh 'echo dockerbuildfinished'
                           }
                       }
                   }
@@ -75,7 +76,9 @@ stage('Build Docker Image') {
                   stage('Push Docker Image') {
                                         steps {
                                       sh 'echo DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+						sh 'echo dockerlogfinished'
                                    sh 'docker push azizbenhaha/spring-app'
+						sh 'echo dockerpushfinished'
                                             }
 
 
