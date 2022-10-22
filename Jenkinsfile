@@ -61,15 +61,24 @@ pipeline{
             }
         }
 		
-		        stage('mySQL database') {
-            steps {
-                
+stage('Build Docker Image') {
+                      steps {
+                          script {
+                            sh 'docker build -t azizbenhaha/cicdback .'
+                          }
+                      }
+                  }
 
-  sh "sudo docker compose up"
-                
-               
-            }
-        }
+                  stage('Push Docker Image') {
+                                        steps {
+                                            script {
+                                             withCredentials([string(credentialsId: 'azizdockerhub', variable: 'dockerhubpwd')]) {
+                                                sh 'docker login -u azizbenhaha -p ${dockerhubpwd}'
+                                             }
+                                             sh 'docker push azizbenhaha/cicdback'
+                                            }
+                                        }
+                                    }
 
      
 }
