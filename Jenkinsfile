@@ -5,7 +5,7 @@ pipeline{
     }
 
 environment{
-DOCKERHUB_CRED=credentials('azizdockerhub')
+DOCKERHUB_CRED=credentials('azizdocker')
 }
 
     stages {
