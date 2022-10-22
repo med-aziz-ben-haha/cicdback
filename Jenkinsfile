@@ -80,7 +80,7 @@ stage('Build Docker Image') {
                                    sh 'docker push azizbenhaha/spring-app'
                                             }
                                         }
-                                    }
+
 
      
 }
