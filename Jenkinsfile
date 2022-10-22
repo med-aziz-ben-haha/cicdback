@@ -82,7 +82,7 @@ stage('Build Docker Image') {
 
      
 }
-	
+}
 	    
         post {
 		/*success{
