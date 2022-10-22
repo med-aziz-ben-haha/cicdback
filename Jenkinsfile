@@ -5,7 +5,7 @@ pipeline{
     }
 
 environment{
-DOCKERHUB_CRED=credentials('azizdocker')
+DOCKERHUB_CREDENTIALS=credentials('azizdockerhub')
 }
 
     stages {
@@ -75,7 +75,7 @@ stage('Build Docker Image') {
                   stage('Push Docker Image') {
                                         steps {
 
-                                    sh 'echo DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --pass-stdin'
+                                    sh 'echo DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --pass-stdin'
 
                                    sh 'docker push azizbenhaha/spring-app'
                                             }
