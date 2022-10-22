@@ -75,7 +75,10 @@ stage('Build Docker Image') {
                   stage('Push Docker Image') {
                                         steps {
 
-                                    sh 'echo DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --pass-stdin'
+                                   script {
+                                                             withCredentials([string(credentialsId: 'azizbenhaha', variable: 'dockerhubpwd')]) {
+                                                                sh 'docker login -u azizbenhaha -p ${dockerhubpwd}'
+                                                             }
 
                                    sh 'docker push azizbenhaha/spring-app'
                                             }
