@@ -80,7 +80,7 @@ stage('Build Docker Image') {
 	    
 	                      stage('Push Docker Image') {
                                         steps {
-                                   sh 'docker push azizbenhaha / spring-app:latest1'
+                                   sh 'docker push azizbenhaha/spring-app:latest1'
                                             }
 		  }
 
