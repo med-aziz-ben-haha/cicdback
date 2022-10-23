@@ -67,7 +67,7 @@ DOCKERHUB_CREDENTIALS = credentials('azizbenhahadockerhub')
 stage('Build Docker Image') {
                       steps {
                           script {
-                            sh 'docker build -t azizbenhaha/spring-app:latest .'
+                            sh 'docker build -t azizbenhaha / spring-app:latest1 .'
                           }
                       }
                   }
@@ -80,7 +80,7 @@ stage('Build Docker Image') {
 	    
 	                      stage('Push Docker Image') {
                                         steps {
-                                   sh 'docker push azizbenhaha/spring-app:latest'
+                                   sh 'docker push azizbenhaha / spring-app:latest1'
                                             }
 		  }
 
