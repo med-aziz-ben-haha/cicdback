@@ -24,9 +24,17 @@ pipeline{
             }
         }
         
-        
+        stage('Unit Tests') {
+            steps{
+               		 sh "mvn test " 
+            }
+        }
     
-        stage('Artifact Construction') {
+        
+	    
+	    
+	    
+	    stage('Artifact Construction') {
             steps{
                 	sh "mvn -B -DskipTests package " 
             }
@@ -34,11 +42,7 @@ pipeline{
         
     
     
-         stage('Unit Tests') {
-            steps{
-               		 sh "mvn test " 
-            }
-        }
+         
         
 
        
