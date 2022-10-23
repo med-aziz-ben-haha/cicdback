@@ -74,7 +74,7 @@ stage('Build Docker Image') {
 
                   stage('login dockerhub') {
                                         steps {
-                                      sh 'docker login -u azizbenhaha -p dockerhub1234'
+                                      sh 'docker login -u azizbenhaha -p mydockerhub'
                                             }
 		  }
 	    
