@@ -5,7 +5,7 @@ pipeline{
     }
 
 environment{
-DOCKERHUB_CREDENTIALS = credentials('azizbenhahadockerhub')
+DOCKERHUB_CREDENTIALS = credentials('azizdocker')
 }
 
     stages {
