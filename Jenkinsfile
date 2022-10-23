@@ -5,7 +5,7 @@ pipeline{
     }
 
 environment{
-DOCKERHUB_CREDENTIALS = credentials('azizbenhahadockerhub')
+DOCKERHUB_CREDENTIALS = credentials('azizbenhaha')
 }
 
     stages {
@@ -67,15 +67,24 @@ DOCKERHUB_CREDENTIALS = credentials('azizbenhahadockerhub')
 stage('Build Docker Image') {
                       steps {
                           script {
+<<<<<<< HEAD
                             sh 'docker build -t azizbenhaha / spring-app:latest1 .'
+=======
+                            sh 'docker build -t azizbenhaha/spring-app .'
+				   sh 'echo dockerbuildfinished'
+>>>>>>> parent of f14eb00 (Update Jenkinsfile)
                           }
                       }
                   }
 
-                  stage('login dockerhub') {
+                  stage('Push Docker Image') {
                                         steps {
-                                      sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                                      sh 'echo DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+						sh 'echo dockerlogfinished'
+                                   sh 'docker push azizbenhaha/spring-app'
+						sh 'echo dockerpushfinished'
                                             }
+<<<<<<< HEAD
 		  }
 	    
 	                      stage('Push Docker Image') {
@@ -93,6 +102,13 @@ stage('Build Docker Image') {
                             }
 
 	    
+=======
+
+
+
+     
+}
+>>>>>>> parent of f14eb00 (Update Jenkinsfile)
 }
 	    
         post {
