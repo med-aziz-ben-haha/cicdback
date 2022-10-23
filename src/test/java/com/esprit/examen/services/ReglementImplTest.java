@@ -1,4 +1,3 @@
-/*
 package com.esprit.examen.services;
 
 import com.esprit.examen.entities.Reglement;
@@ -45,4 +44,3 @@ public class ReglementImplTest {
 
 
 }
-*/
