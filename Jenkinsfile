@@ -4,9 +4,6 @@ pipeline{
         maven 'M2_HOME'
     }
 
-environment{
-DOCKERHUB_CREDENTIALS = credentials('azizdocker')
-}
 
     stages {
 
