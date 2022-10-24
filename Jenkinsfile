@@ -8,7 +8,7 @@ pipeline{
     stages {
 
 
- stage('preparation : start sonar, nexus and local mysql) {
+ stage('preparation : start sonar, nexus and local mysql') {
             steps{
                 	sh "docker start bfa"
                 	sh "docker start 188"
