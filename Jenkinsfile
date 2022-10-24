@@ -131,14 +131,12 @@ Keep working !
         always {
 		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
-             stage('stop sonar, nexus, local mysql and give docker.sock access') {
-                        steps{
+
                             	sh "docker stop bfa"
                             	sh "docker stop azizbenhaha/spring-app"
                             	sh "docker stop 8a8"
                             	sh "docker stop mysql:5.7"
-                        }
-                    }
+
         }
     }
 
