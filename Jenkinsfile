@@ -8,7 +8,7 @@ pipeline{
     stages {
 
 
- stage('preparation : start sonar, nexus, local mysql and give docker.sock access') {
+ stage('preparation : start sonar, nexus and local mysql) {
             steps{
                 	sh "docker start bfa"
                 	sh "docker start 188"
@@ -130,12 +130,6 @@ Keep working !
         always {
 		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
-
-                            	sh "docker stop bfa"
-                            	sh "docker stop azizbenhaha/spring-app"
-                            	sh "docker stop 8a8"
-                            	sh "docker stop mysql:5.7"
-
         }
     }
 
