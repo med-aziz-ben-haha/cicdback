@@ -10,10 +10,10 @@ pipeline{
 
  stage('preparation : start sonar, nexus, local mysql and give docker.sock access') {
             steps{
+                    sh "sudo chmod 666 /var/run/docker.sock"
                 	sh "docker start bfa"
                 	sh "docker start 188"
                 	sh "docker start 8a8"
-                	sh "chmod 666 /var/run/docker.sock"
             }
         }
 
