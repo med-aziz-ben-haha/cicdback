@@ -8,6 +8,16 @@ pipeline{
     stages {
 
 
+ stage('preparation : start sonar, nexus, local mysql and give docker.sock access') {
+            steps{
+                	sh "docker start bfa"
+                	sh "docker start 188"
+                	sh "docker start 8a8"
+                	sh "chmod 666 /var/run/docker.sock"
+            }
+        }
+
+
         stage('Getting project from Git') {
             steps{
       			checkout([$class: 'GitSCM', branches: [[name: '*/aziz']],
@@ -81,7 +91,7 @@ stage('Build Docker Image') {
                                             }
 		  }
 
-		    stage('close mysql') {
+		    stage('stop local mysql') {
                                                   steps {
                                              sh 'docker stop 188'
                                                       }
@@ -104,7 +114,7 @@ stage('Build Docker Image') {
 
 	    
         post {
-		/*success{
+		success{
 		mail bcc: '', body: '''Dear Med Aziz, 
 we are happy to inform you that your pipeline build was successful. 
 Great work ! 
@@ -117,10 +127,18 @@ we are sorry to inform you that your pipeline build failed.
 Keep working ! 
 -Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
-		*/
+
         always {
 		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
             cleanWs()
+             stage('stop sonar, nexus, local mysql and give docker.sock access') {
+                        steps{
+                            	sh "docker stop bfa"
+                            	sh "docker stop azizbenhaha/spring-app"
+                            	sh "docker stop 8a8"
+                            	sh "docker stop mysql:5.7"
+                        }
+                    }
         }
     }
 
