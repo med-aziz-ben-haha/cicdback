@@ -81,6 +81,12 @@ stage('Build Docker Image') {
                                             }
 		  }
 
+		    stage('close mysql') {
+                                                  steps {
+                                             sh 'docker stop 188'
+                                                      }
+          		  }
+
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
                                     script {

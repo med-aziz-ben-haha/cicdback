@@ -3,11 +3,15 @@ version: "3.3"
 services:
   mysqldb:
     image: mysql:5.7
+    container_name: mysqldbco
     restart: unless-stopped
     env_file: ./.env
     environment:
-      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
-      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      MYSQL_ROOT_PASSWORD: '$MYSQLDB_ROOT_PASSWORD'
+      MYSQL_DATABASE: '$MYSQLDB_DATABASE'
+      MYSQL_USER: '$MYSQLDB_USER'
+      MYSQL_PASSWORD: '$MYSQL_PASSWORD'
+      MYSQL_ROOT_HOST: '%'
     ports:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
@@ -15,7 +19,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    build: ./spring-app
+    image:  azizbenhaha/spring-app
     restart: on-failure
     env_file: ./.env
     ports:
