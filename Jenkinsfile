@@ -8,15 +8,6 @@ pipeline{
     stages {
 
 
- stage('preparation : start sonar, nexus, local mysql') {
-            steps{
-                	sh "docker start bfa"
-                	sh "docker start 188"
-                	sh "docker start 8a8"
-            }
-        }
-
-
         stage('Getting project from Git') {
             steps{
       			checkout([$class: 'GitSCM', branches: [[name: '*/aziz']],
