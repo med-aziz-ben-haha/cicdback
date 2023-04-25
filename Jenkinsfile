@@ -119,7 +119,7 @@ Keep working !
 
         always {
 		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
-            cleanWs()
+           // cleanWs()
         }
     }
 
