@@ -80,11 +80,11 @@ stage('Build Docker Image') {
                                             }
 		  }
 
-		    stage('stop local mysql') {
+		  /*  stage('stop local mysql') {
                                                   steps {
                                              sh 'docker stop 188'
                                                       }
-          		  }
+          		  }*/
 
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
