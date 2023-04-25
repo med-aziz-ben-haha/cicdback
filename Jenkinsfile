@@ -117,10 +117,10 @@ Keep working !
 -Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 
-        always {
+      //  always {
 	//	emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
            // cleanWs()
-        }
+      //  }
     }
 
     
