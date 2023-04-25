@@ -15,7 +15,7 @@ pipeline{
         }
 
 
-
+/*
         stage('Cleaning the project') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
@@ -30,14 +30,14 @@ pipeline{
             }
         }
 
-/*
+
 
          stage('Unit Tests') {
             steps{
                		 sh "mvn test "
             }
         }
-*/
+
 
 
         stage('Code Quality Check via SonarQube') {
@@ -80,12 +80,12 @@ stage('Build Docker Image') {
                                             }
 		  }
 
-		  /*  stage('stop local mysql') {
+		   stage('stop local mysql') {
                                                   steps {
                                              sh 'docker stop 188'
                                                       }
-          		  }*/
-
+          		  }
+*/
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
                                     script {
@@ -118,7 +118,7 @@ Keep working !
 		}
 
         always {
-		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
+	//	emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
            // cleanWs()
         }
     }
