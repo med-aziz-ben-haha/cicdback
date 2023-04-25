@@ -15,8 +15,7 @@ pipeline{
         }
 
 
-/*
-        stage('Cleaning the project') {
+       stage('Cleaning the project') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -85,7 +84,7 @@ stage('Build Docker Image') {
                                              sh 'docker stop 188'
                                                       }
           		  }
-*/
+
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
                                     script {
@@ -117,10 +116,10 @@ Keep working !
 -Jenkins Team-''', cc: '', from: 'mohamedaziz.benhaha@esprit.tn', replyTo: '', subject: 'Build Finished - Failure', to: 'mohamedaziz.benhaha@esprit.tn'
 		}
 
-      //  always {
-	//	emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
-           // cleanWs()
-      //  }
+       always {
+		emailext attachLog: true, body: '', subject: 'Build finished',from: 'mohamedaziz.benhaha@esprit.tn' , to: 'mohamedaziz.benhaha@esprit.tn'
+            cleanWs()
+       }
     }
 
     
