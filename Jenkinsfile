@@ -14,7 +14,7 @@ pipeline{
             }
         }
 
-
+/*
        stage('Cleaning the project') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
@@ -79,11 +79,7 @@ stage('Build Docker Image') {
                                             }
 		  }
 
-		   stage('stop local mysql') {
-                                                  steps {
-                                             sh 'docker stop 188'
-                                                      }
-          		  }
+		  */
 
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
