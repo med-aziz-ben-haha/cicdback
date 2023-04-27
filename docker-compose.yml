@@ -33,10 +33,7 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     volumes:
-      #- .m2:/root/.m2
-      - type: bind
-        source: /root/.m2
-        target: .m2
+      - .m2:/root/.m2
     stdin_open: true
     tty: true
     user: root
