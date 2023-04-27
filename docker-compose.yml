@@ -36,6 +36,7 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
+    user: root
 
 volumes:
   db:
