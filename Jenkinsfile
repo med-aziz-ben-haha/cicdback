@@ -14,7 +14,7 @@ pipeline{
             }
         }
 
-/*
+
        stage('Cleaning the project') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
@@ -79,7 +79,6 @@ stage('Build Docker Image') {
                                             }
 		  }
 
-		  */
 
 		   stage('Run Spring && MySQL Containers') {
                                 steps {
